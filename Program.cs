@@ -8,22 +8,14 @@ namespace ExercicioXadrez
     {
         static void Main(string[] args)
         {
-            try
-            {
-                Tabuleiro tab = new Tabuleiro(8, 8);
+            PosicaoXadrez pos = new PosicaoXadrez('c', 7);
 
-                tab.colocarPeca(new Torre(tab, Cor.Branco), new Posicao(0, 0));
-                tab.colocarPeca(new Rei(tab, Cor.Branco), new Posicao(0, 0));
-                tab.colocarPeca(new Rainha(tab, Cor.Vermelho), new Posicao(1, 3));
+            Console.WriteLine(pos);
 
-                Tela.imprimirTabuleiro(tab);
+            Console.WriteLine(pos.toPosicao());
 
-            }
+            Console.ReadKey();
 
-            catch(TabuleiroException e)
-            {
-                Console.WriteLine(e.Message);
-            }
 
         }
     }
