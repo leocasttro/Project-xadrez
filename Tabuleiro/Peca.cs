@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ExercicioXadrez.tabuleiro
 {
-    class Posicao
+    class Peca
     {
     }
 }
