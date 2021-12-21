@@ -7,14 +7,14 @@ namespace xadrez
     class PartidaDeXadrez
     {
         public Tabuleiro tab { get; private set; }
-        private int Turno;
-        private Cor jogadorAtual;
+        public  int turno { get; private set; }
+        public Cor jogadorAtual{ get; private set; }
         public bool terminada { get; private set; }
 
         public PartidaDeXadrez()
         {
             tab = new Tabuleiro(8, 8);
-            Turno = 1;
+            turno = 1;
             jogadorAtual = Cor.Branco;
             colocarPecas();
         }
@@ -24,6 +24,45 @@ namespace xadrez
             p.incrementarQteMovimentos();
             Peca pecaCapturada = tab.retirarPeca(destino);
             tab.colocarPeca(p, destino);
+        }
+        public void realizaJogada(Posicao origem, Posicao destino)
+        {
+            executaMovimento(origem, destino);
+            turno++;
+            mudaJogador();
+        }
+        public void validarPosicaoOrigem(Posicao pos)
+        {
+            if (tab.peca(pos) == null)
+            {
+                throw new TabuleiroException("Não existe nenhuma peça nessa posilção!");
+            }
+            if (jogadorAtual != tab.peca(pos).cor)
+            {
+                throw new TabuleiroException("A cor peça selecioanda é do adversário!");
+            }
+            if (!tab.peca(pos).existeMovimentosPossiveis())
+            {
+                throw new TabuleiroException("A peça está bloqueada para a jogada");
+            }
+        }
+        public void validarPosicaoDestino(Posicao origem, Posicao destino)
+        {
+            if (!tab.peca(origem).podeMoverPara(destino))
+            {
+                throw new TabuleiroException("Posição de destino invalido!");
+            }
+        }
+        private void mudaJogador()
+        {
+            if (jogadorAtual == Cor.Branco)
+            {
+                jogadorAtual = Cor.Vermelho;
+            }
+            else
+            {
+                jogadorAtual = Cor.Branco;
+            }
         }
         private void colocarPecas()
         {
@@ -35,6 +74,8 @@ namespace xadrez
             tab.colocarPeca(new Bispo(tab, Cor.Branco), new PosicaoXadrez('f', 1).toPosicao());
             tab.colocarPeca(new Cavalo(tab, Cor.Branco), new PosicaoXadrez('g', 1).toPosicao());
             tab.colocarPeca(new Torre(tab, Cor.Branco), new PosicaoXadrez('h', 1).toPosicao());
+            tab.colocarPeca(new Peao(tab, Cor.Branco), new PosicaoXadrez('a', 2).toPosicao());
+
 
 
             tab.colocarPeca(new Torre(tab, Cor.Vermelho), new PosicaoXadrez('a', 8).toPosicao());
