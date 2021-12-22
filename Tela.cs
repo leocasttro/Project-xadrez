@@ -19,7 +19,7 @@ namespace ExercicioXadrez
                 Console.Write("Aguardando jogada: " + partida.jogadorAtual);
                 if (partida.xeque)
                 {
-                    Console.Write("XEQUE!");
+                    Console.Write(" XEQUE!");
                 }
             }
             else

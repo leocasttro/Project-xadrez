@@ -18,10 +18,11 @@ namespace ExercicioXadrez
                     {
 
                         Console.Clear();
-                        Tela.imprimirTabuleiro(partida.tab);
+                        Tela.imprimirPartida(partida);
+                        // Tela.imprimirTabuleiro(partida.tab);
                         Console.WriteLine();
-                        Console.Write("Turno " + partida.turno);
-                        Console.Write(" Jogador " + partida.jogadorAtual);
+                       /* Console.Write("Turno " + partida.turno);
+                        Console.Write(" Jogador " + partida.jogadorAtual); */
 
 
 
