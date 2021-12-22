@@ -27,25 +27,25 @@ namespace xadrez
                 mat[pos.linha, pos.coluna] = true;
             }
             //NORDESTE
-            pos.definirValores(posicao.linha - 1, posicao.coluna +1);
+            pos.definirValores(posicao.linha - 1, posicao.coluna + 1);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
             }
             //NOROESTE
-            pos.definirValores(posicao.linha - 1, posicao.coluna -1);
+            pos.definirValores(posicao.linha - 1, posicao.coluna - 1);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
             }
             //SUDESTE
-            pos.definirValores(posicao.linha + 1, posicao.coluna -1);
+            pos.definirValores(posicao.linha + 1, posicao.coluna - 1);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
             }
             //BAIXO
-            pos.definirValores(posicao.linha +1, posicao.coluna);
+            pos.definirValores(posicao.linha + 1, posicao.coluna);
             if (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
@@ -68,8 +68,22 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
             }
+
+            //ROQUE
+
+            if (quantidadeMovimento == 0)
+            {
+                pos.definirValores(posicao.linha, posicao.coluna - 3);
+                if (tab.posicaoValida(pos) && podeMover(pos))
+                {
+                    mat[pos.linha, pos.coluna] = true;
+                }
+            }
+
             return mat;
         }
+            
+        
 
         public override string ToString()
         {

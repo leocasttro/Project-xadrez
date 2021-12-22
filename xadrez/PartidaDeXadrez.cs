@@ -101,7 +101,7 @@ namespace xadrez
         {
             if (jogadorAtual == Cor.Branco)
             {
-                jogadorAtual = Cor.Vermelho;
+                jogadorAtual = Cor.Azul;
             }
             else
             {
@@ -137,7 +137,7 @@ namespace xadrez
         {
             if (cor == Cor.Branco)
             {
-                return Cor.Vermelho;
+                return Cor.Azul;
             }
             else
             {
@@ -210,14 +210,26 @@ namespace xadrez
         }
         private void colocarPecas()
         {
-            colocarNovaPeca('a', 1, new Torre(tab, Cor.Branco));
-            colocarNovaPeca('d', 1, new Rei(tab, Cor.Branco));
+            //colocarNovaPeca('a', 1, new Torre(tab, Cor.Azul));
+            //colocarNovaPeca('b', 1, new Cavalo(tab, Cor.Azul));
+            //colocarNovaPeca('c', 1, new Bispo(tab, Cor.Azul));
+            colocarNovaPeca('d', 1, new Rei(tab, Cor.Azul));
+            //colocarNovaPeca('e', 1, new Rainha(tab, Cor.Azul));
+            //colocarNovaPeca('f', 1, new Bispo(tab, Cor.Azul));
+            //colocarNovaPeca('g', 1, new Cavalo(tab, Cor.Azul));
+            //colocarNovaPeca('h', 1, new Torre(tab, Cor.Azul));
+            //colocarNovaPeca('a', 2, new Peao(tab, Cor.Azul));
 
-
-            colocarNovaPeca('a', 8, new Torre(tab, Cor.Vermelho));
-            colocarNovaPeca('d', 8, new Rei(tab, Cor.Vermelho));
-
-
+            colocarNovaPeca('a', 8, new Torre(tab, Cor.Branco));
+            colocarNovaPeca('b', 8, new Cavalo(tab, Cor.Branco));
+            colocarNovaPeca('c', 8, new Bispo(tab, Cor.Branco));
+            colocarNovaPeca('d', 8, new Rei(tab, Cor.Branco));
+            colocarNovaPeca('e', 8, new Rainha(tab, Cor.Branco));
+            colocarNovaPeca('f', 8, new Bispo(tab, Cor.Branco));
+            colocarNovaPeca('g', 8, new Cavalo(tab, Cor.Branco));
+            colocarNovaPeca('h', 8, new Torre(tab, Cor.Branco));
+            colocarNovaPeca('a', 7, new Peao(tab, Cor.Branco));
+            colocarNovaPeca('b', 7, new Peao(tab, Cor.Branco));
         }
     }
 }

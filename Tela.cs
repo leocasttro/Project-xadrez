@@ -35,10 +35,10 @@ namespace ExercicioXadrez
             Console.Write("Brancas: ");
             imprimirConjunto(partida.pecaCapturadasCor(Cor.Branco));
             Console.WriteLine();
-            Console.Write("Pretas: ");
+            Console.Write("Azuis: ");
             ConsoleColor aux = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            imprimirConjunto(partida.pecaCapturadasCor(Cor.Vermelho));
+            Console.ForegroundColor = ConsoleColor.Blue;
+            imprimirConjunto(partida.pecaCapturadasCor(Cor.Azul));
             Console.ForegroundColor = aux;
             Console.WriteLine();
         }
@@ -65,6 +65,7 @@ namespace ExercicioXadrez
                 }
                 Console.WriteLine();
             }
+
             Console.WriteLine("  a b c d e f g h");
         }
         public static void imprimirTabuleiro(Tabuleiro tab, bool[,] posicoesPossiveis)
@@ -89,6 +90,7 @@ namespace ExercicioXadrez
                 }
                 Console.WriteLine();
             }
+
             Console.WriteLine("  a b c d e f g h");
             Console.BackgroundColor = fundoOriginal;
         }
@@ -115,7 +117,7 @@ namespace ExercicioXadrez
                 else
                 {
                     ConsoleColor aux = Console.ForegroundColor;
-                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     Console.Write(peca);
                     Console.ForegroundColor = aux;
                 }
